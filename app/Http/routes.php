@@ -14,12 +14,19 @@
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function() {
-        // return 'welcome';
-        // return view('welcome');
-        return redirect('test');
+        return 'index';
     });
-    Route::get('hello/{name?}', function($name = 'everybody') {
-        return 'hello, '.$name;
+
+    Route::post('tasks', function() {
+        return redirect('/');
+    });
+
+    Route::patch('tasks/{task}', function($task) {
+        return redirect('/');
+    });
+
+    Route::delete('tasks/{task}', function($task) {
+        return redirect('/');
     });
 
 });
