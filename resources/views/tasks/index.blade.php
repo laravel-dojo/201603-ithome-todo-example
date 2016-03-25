@@ -21,7 +21,7 @@
                     </div>
 
                     <!-- 建立新 Task 表單 -->
-                    <form action="" method="POST" class="form-horizontal">
+                    <form action="{{ url('tasks') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- Task 名稱 -->
@@ -63,11 +63,15 @@
                         @foreach($tasks as $task)
                             <tr>
                                 <td class="table-text">
-                                    <div class="">{{ $task->name }}</div>
+                                    <div class="{{ ($task->done == 1)? ' check' : '' }}">
+                                        {{ $task->name }}
+                                    </div>
                                 </td>
                                 <td>
+
+                                    @if ($task->done == 0)
                                     <!-- 完成 Task 按鈕 -->
-                                    <form action="" method="POST" class="form-inline">
+                                    <form action="{{ url('tasks/'.$task->id) }}" method="POST" class="form-inline">
                                         {{ csrf_field() }}
                                         {{ method_field('PATCH') }}
 
@@ -75,8 +79,10 @@
                                             <i class="fa fa-check"></i>完成
                                         </button>
                                     </form>
+                                    @endif
+
                                     <!-- 刪除 Task 按鈕 -->
-                                    <form action="" method="POST" class="form-inline">
+                                    <form action="{{ url('tasks/'.$task->id) }}" method="POST" class="form-inline">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger">
