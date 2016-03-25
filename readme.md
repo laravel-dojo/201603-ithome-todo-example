@@ -10,14 +10,16 @@ Laravel Dojo 於 2016/03/26 與 iThome 合作舉辦 Laravel 一日體驗班，�
 
 ### 如何使用範例程式碼
 
-1. 下載 或 `git clone git@github.com:laravel-dojo/201603-ithome-todo-example.git todo` 
+1. 下載 或 `git clone https://github.com/laravel-dojo/201603-ithome-todo-example.git todo` 
 2. 打開 Terminal ，切換至 `todo` 資料夾
 3. 執行 `composer install`
-4. 設定您的網站伺服器的文件根目錄 (Document Root) 指向 `todo/public` 並啟動您的網站伺服器
-5. 設定您的 MySQL 資料庫，建立一個新的 `todo_local` 資料表，啟動您的 MySQL 伺服器
-6. 打開 `.env` 修改 mysql 連線相關設定
-7. 在 Terminal 執行 `php artisan migrate` 確認資料庫連線正確並建立 `migrations` 資料表
-8. 瀏覽應用程式首頁即可
+4. 複製一份 `.env.example` 成 `.env` 
+5. 在專案資料夾下執行 `php artisan key:generate` 產生 `APP_KEY`
+6. 啟動您的 MySQL 伺服器後進入您的 MySQL 管理介面，建立一個新的 `todo_local` 資料庫
+7. 打開 `.env` 設定 MySQL 資料庫
+8. 在 Terminal 執行 `php artisan migrate` 確認資料庫連線正確並建立專案運作所謂的資料表
+9. 設定您的 HTTP 伺服器的文件根目錄 (Document Root) 指向 `todo/public` 並啟動您的 HTTP 伺服器
+10. 瀏覽應用程式首頁即可
 
 ### 補充說明
 
