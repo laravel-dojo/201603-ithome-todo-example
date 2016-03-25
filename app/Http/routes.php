@@ -13,8 +13,13 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
+    Route::get('/', function() {
+        // return 'welcome';
+        // return view('welcome');
+        return redirect('test');
+    });
+    Route::get('hello/{name?}', function($name = 'everybody') {
+        return 'hello, '.$name;
     });
 
 });
